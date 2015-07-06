@@ -30,6 +30,7 @@ RUN ln -s /usr/bin/nodejs /usr/local/bin/node
 
 EXPOSE 3000
 EXPOSE 1337
+EXPOSE 80
 
 WORKDIR /var/www
 
@@ -38,9 +39,13 @@ RUN forever stopall;true
   RUN git clone https://github.com/shyamrock/openFDAWebApp.git
 WORKDIR /var/www/openFDAWebApp
 
+
+
+RUN set NODE_ENV=Production
 RUN npm install
 
-RUN set NODE_ENV=Development
+
+RUN sails lift --prod
 
 VOLUME ["/var/files", "/var/www"]
 
