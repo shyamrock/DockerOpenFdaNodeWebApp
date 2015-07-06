@@ -28,22 +28,24 @@ ADD ./config/supervisord.conf /etc/supervisor/conf.d/supervisord-nodejs.conf
 
 RUN ln -s /usr/bin/nodejs /usr/local/bin/node
 
-EXPOSE 3000
 EXPOSE 1337
-EXPOSE 80
+
 
 WORKDIR /var/www
 
-RUN forever stopall;true
  RUN rm -rf https://github.com/shyamrock/openFDAWebApp.git; true
   RUN git clone https://github.com/shyamrock/openFDAWebApp.git
+
 WORKDIR /var/www/openFDAWebApp
 
-RUN set NODE_ENV=Development
 RUN npm install
 
 # Set environment variables
-ENV TIMEOUT 20000
+#ENV TIMEOUT 20000
+
+#RUN sails lift
+
+
 
 VOLUME ["/var/files", "/var/www"]
 
