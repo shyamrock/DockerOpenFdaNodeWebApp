@@ -41,9 +41,8 @@ WORKDIR /var/www/openFDAWebApp
 RUN npm install
 
 # Set environment variables
-#ENV TIMEOUT 20000
+ENV TIMEOUT 20000
 
-#RUN sails lift
 
 
 
