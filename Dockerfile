@@ -42,6 +42,8 @@ WORKDIR /var/www/openFDAWebApp
 RUN set NODE_ENV=Development
 RUN npm install
 
+# Set environment variables
+ENV TIMEOUT 20000
 
 VOLUME ["/var/files", "/var/www"]
 
