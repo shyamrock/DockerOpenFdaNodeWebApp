@@ -39,13 +39,9 @@ RUN forever stopall;true
   RUN git clone https://github.com/shyamrock/openFDAWebApp.git
 WORKDIR /var/www/openFDAWebApp
 
-
-
-RUN set NODE_ENV=Production
+RUN set NODE_ENV=Development
 RUN npm install
 
-
-RUN sails lift --prod
 
 VOLUME ["/var/files", "/var/www"]
 
